@@ -2,46 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Checks the balls speed and triggers level resets
 public class MomentumCheck : MonoBehaviour {
 	
-	public float xGravityEffect;
-	//public float timeToFirstCheck;
-	//public bool checkEnabled;
+	public float speedToCount = 0.01f;
+	public int countsToReset = 10;
 
-	//private GameObject gameControllerObject;
-	//private GameController gameControllerScript;
-	//private int count;
+	private GameObject gameControllerObject;
+	private GameController gameControllerScript;
+	private int count;
 
 	void Start () {
-		//checkEnabled = false;
+		gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
+		gameControllerScript = gameControllerObject.GetComponent<GameController> ();
 
-		//gameControllerObject = GameObject.FindGameObjectWithTag ("GameController");
-		//gameControllerScript = gameControllerObject.GetComponent<GameController> ();
+		if (gameControllerObject == null) {
+			Debug.Log ("Could not find game controller object!");
+		}
 
-		//count = 0;
-
-		//if (gameControllerObject == null) {
-		//	Debug.Log ("Could not find game controller object!");
-		//}
-
-		//yield return new WaitForSeconds (timeToFirstCheck);
-
-		//checkEnabled = true;
+		count = 0;
 	}
 
 	void Update () {
-		//if (checkEnabled) {
-		//	if (Mathf.Abs (gameObject.GetComponent<Rigidbody2D> ().velocity.x) < 0.01 && Mathf.Abs (gameObject.GetComponent<Rigidbody2D> ().velocity.y) < 0.01) {
-		//		count++;
-		//	} else {
-		//		count = 0;
-		//	}
+		if (Mathf.Abs (gameObject.GetComponent<Rigidbody2D> ().velocity.x) < speedToCount && Mathf.Abs (gameObject.GetComponent<Rigidbody2D> ().velocity.y) < speedToCount) {
+			count++;
+		} else {
+			count = 0;
+		}
 
-		//	if (count == 10) {
-		//		gameControllerScript.ResetScene (1);
-		//	}
-		//}
-
-		Physics2D.gravity = new Vector2 (gameObject.GetComponent<Rigidbody2D>().velocity.x * xGravityEffect, Physics2D.gravity.y);
+		if (count == countsToReset) {
+			gameControllerScript.ResetScene (1);
+		}
 	}
 }

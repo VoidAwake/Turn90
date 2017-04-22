@@ -17,6 +17,8 @@ public class GameController : MonoBehaviour {
 	public AudioClip pickupSound;
 	public AudioClip explosionSound;
 	public AudioClip levelCompleteSound;
+	public GameObject variableStoragePrefab;
+	public float timeToFirstCheck;
 
 	private int score;
 	private int pickupQuantity;
@@ -28,11 +30,20 @@ public class GameController : MonoBehaviour {
 
 
 	IEnumerator Start () {
+		Physics2D.gravity = new Vector2 (0, -9.81f);
+
 		score = 0;
 		pickupQuantity = GameObject.FindGameObjectsWithTag ("Pickup").Length;
 		UpdateScore ();
 
 		variableStorageObject = GameObject.FindGameObjectWithTag ("Storage");
+
+		if (variableStorageObject == null) {
+			Debug.Log ("Can't find variable storage object! Instantiating new one from prefab...");
+
+			variableStorageObject = Instantiate (variableStoragePrefab);
+		}
+
 		variableStorageScript = variableStorageObject.GetComponent<VariableStorage> ();
 
 		ball = GameObject.FindGameObjectWithTag ("Player");
@@ -48,6 +59,10 @@ public class GameController : MonoBehaviour {
 		lerpEnabled = true;
 
 		ball.GetComponent<Rigidbody2D> ().constraints = RigidbodyConstraints2D.None;
+
+		yield return new WaitForSeconds (timeToFirstCheck);
+
+		ball.GetComponent<MomentumCheck> ().enabled = true;
 	}
 
 	void Update () {
@@ -96,7 +111,6 @@ public class GameController : MonoBehaviour {
 		
 	IEnumerator OnTriggerEnter2D (Collider2D other) {
 		if (score == pickupQuantity) {
-			
 
 			yield return new WaitForSeconds (0.5f);
 
@@ -114,7 +128,7 @@ public class GameController : MonoBehaviour {
 		} else {
 			slowingEnabled = true;
 
-			//ball.GetComponent<MomentumCheck> ().checkEnabled = false;
+			ball.GetComponent<MomentumCheck> ().enabled = false;
 
 			yield return new WaitForSeconds (2);
 

@@ -22,8 +22,6 @@ GameObject:
   - component: {fileID: 114248485854436418}
   - component: {fileID: 61922746621643180}
   - component: {fileID: 82176907722801884}
-  - component: {fileID: 114534960634189440}
-  - component: {fileID: 114445810367462152}
   m_Layer: 0
   m_Name: Game Control
   m_TagString: GameController
@@ -412,7 +410,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1141202790859764}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.5, y: 2.9900055, z: 3.24}
+  m_LocalPosition: {x: -1.5, y: 2.09, z: 3.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4093032294836448}
@@ -801,6 +799,9 @@ MonoBehaviour:
   pickupSound: {fileID: 8300000, guid: cee2e665935fc67439afada5f40dccdc, type: 3}
   explosionSound: {fileID: 8300000, guid: 536ce84a144785642be18534500a3ad1, type: 3}
   levelCompleteSound: {fileID: 8300000, guid: 0cea6f3eb4ce00a4db80b1bc05aba2c1, type: 3}
+  variableStoragePrefab: {fileID: 1111735125481020, guid: 0217a8f534e45054ab769eb0405d2bcc,
+    type: 2}
+  timeToFirstCheck: 1
 --- !u!114 &114362767771979650
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -867,18 +868,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Reset
---- !u!114 &114445810367462152
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1065000488572568}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12fa81a2f868afd4685a0400e8198ecc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ball: {fileID: 0}
 --- !u!114 &114485543771889672
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -995,21 +984,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &114534960634189440
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1065000488572568}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 404cace0c53f060448a20e9770011e20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  straightTile: {fileID: 1762965470736360, guid: 92b34f2a6c6cac5449a6d460846a3b5a,
-    type: 2}
-  curvedTile: {fileID: 1521192835947876, guid: 9bcd0cbd60104e44987f7544adf6cf63, type: 2}
-  coinPrefab: {fileID: 1504677796635016, guid: 05b776249cd4cd94cb91a6e78ca48588, type: 2}
 --- !u!114 &114553721669694038
 MonoBehaviour:
   m_ObjectHideFlags: 1
