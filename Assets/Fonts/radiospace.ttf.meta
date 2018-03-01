@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 1d0bab3b65934eb45a2a6d55d4f528eb
+timeCreated: 1494032560
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Radio Space
+  fontNames:
+  - Radio Space
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

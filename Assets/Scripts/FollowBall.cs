@@ -8,22 +8,13 @@ public class FollowBall : MonoBehaviour {
 	public GameObject ball;
 
 	private GameObject mainCamera;
-	private bool followActivated = false;
 
-	void Start () {
-		ball = GameObject.FindGameObjectWithTag ("Player");
-
+	void OnEnable () {
 		mainCamera = GameObject.FindGameObjectWithTag ("MainCamera");
-
-		if (ball != null && mainCamera != null) {
-			followActivated = true;
-		} else {
-			Debug.Log ("Could not find main camera or player object!");
-		}
 	}
 
 	void Update () {
-		if (followActivated) {
+		if (ball != null) {
 			mainCamera.transform.position = new Vector3 (gameObject.transform.position.x, ball.transform.position.y, gameObject.transform.position.z - 2);
 		}
 	}

@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 7fffc2b9d54878b4c98659329be79d3d
+timeCreated: 1494032893
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Radio Space 3D
+  fontNames:
+  - Radio Space 3D
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
