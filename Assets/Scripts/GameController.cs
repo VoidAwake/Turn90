@@ -143,6 +143,9 @@ public class GameController : MonoBehaviour {
 		if (lerpEnabled) {
 			overlay.GetComponent<CanvasGroup> ().alpha = Mathf.Lerp(overlay.GetComponent<CanvasGroup> ().alpha, 0, Time.deltaTime / lerpTime);
 		}
+
+		// Increase gravity
+		Physics2D.gravity = new Vector2 (Physics2D.gravity.x, Physics2D.gravity.y - 0.01f);
 	}
 
 	public void ResetSceneTest () {
@@ -248,6 +251,9 @@ public class GameController : MonoBehaviour {
 		score += 1;
 		UpdateScore ();
 		playSound (0);
+
+		// Increase gravity
+		Physics2D.gravity = new Vector2 (Physics2D.gravity.x, Physics2D.gravity.y + 1);
 	}
 
 	void UpdateScore () {
