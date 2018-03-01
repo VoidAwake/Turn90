@@ -9,13 +9,16 @@ public class FollowBall : MonoBehaviour {
 
 	private GameObject mainCamera;
 
+	// Disabled in levels, enabled by GameController script when in infinite mode
 	void OnEnable () {
 		mainCamera = GameObject.FindGameObjectWithTag ("MainCamera");
 	}
 
 	void Update () {
 		if (ball != null) {
-			mainCamera.transform.position = new Vector3 (gameObject.transform.position.x, ball.transform.position.y, gameObject.transform.position.z - 2);
+			if (ball.transform.position.y < mainCamera.transform.position.y) {
+				mainCamera.transform.position = new Vector3 (mainCamera.transform.position.x, ball.transform.position.y, mainCamera.transform.position.z);
+			}
 		}
 	}
 }
